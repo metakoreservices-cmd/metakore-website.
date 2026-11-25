@@ -477,6 +477,84 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
 .iso .gun{stroke:#cfd0d3;stroke-width:1.4;stroke-linecap:round}
 .iso .hose{fill:none;stroke:#1c1c1e;stroke-width:1.1;stroke-linecap:round}
 
+
+/* ---------- quote form ---------- */
+.quote{padding-block:24px 8px;scroll-margin-top:84px}
+.quote-wrap{display:grid;grid-template-columns:.82fr 1.18fr;gap:12px;align-items:start}
+.quote-intro{padding:52px 44px;display:flex;flex-direction:column;gap:22px;min-width:0;position:sticky;top:calc(84px + env(safe-area-inset-top,0px))}
+.slab.quote-intro{position:sticky}
+.quote-intro h2{font-size:clamp(30px,3.6vw,48px)}
+.quote-intro p{color:var(--on-dark-2);max-width:30em}
+.quote-steps{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:14px}
+.quote-steps li{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;color:var(--on-dark-2);font-size:15px}
+.quote-steps b{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;border:1px solid var(--dark-rule);font-family:var(--mono);font-size:12px;font-weight:500;color:var(--on-dark)}
+.quote-steps li:first-child b{border-color:rgba(255,122,26,.7);color:var(--china)}
+.quote-direct{margin-top:6px;padding-top:20px;border-top:1px solid var(--dark-rule);display:grid;gap:6px;font-size:15px;color:var(--on-dark-2)}
+.quote-direct a{color:var(--on-dark);text-decoration:none;font-weight:500}
+.quote-card{background:var(--white);border-radius:var(--r);padding:40px 40px 36px;min-width:0}
+.qhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-bottom:26px}
+.qhead h3{font-size:22px}
+.lang{display:inline-flex;padding:4px;border-radius:12px;background:var(--paper-2);position:relative}
+.lang button{position:relative;z-index:1;border:0;background:none;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ink-2);padding:8px 14px;border-radius:9px;cursor:pointer;transition:color .3s}
+.lang button[aria-pressed="true"]{color:var(--on-dark)}
+.lang .pill{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:9px;background:var(--char);transition:transform .45s var(--ease)}
+.lang[data-lang="en"] .pill{transform:translateX(100%)}
+.qform{display:grid;gap:26px}
+.qgroup{display:grid;gap:14px;border:0;margin:0;padding:0;min-width:0}
+.qgroup legend{padding:0;margin-bottom:14px;display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.qgroup legend::before{content:attr(data-n);display:grid;place-items:center;width:22px;height:22px;border-radius:7px;background:var(--char);color:var(--on-dark);font-size:11px;letter-spacing:0}
+.qrow{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.field{display:grid;gap:6px;min-width:0;align-content:start}
+.field label,.field .lbl{font-size:14px;font-weight:500;color:var(--ink)}
+.field .opt{color:var(--steel);font-weight:400}
+.field input,.field select,.field textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;transition:border-color .25s,box-shadow .25s,background .25s;-webkit-appearance:none;appearance:none}
+.field select{background-image:linear-gradient(45deg,transparent 50%,var(--ink-2) 50%),linear-gradient(135deg,var(--ink-2) 50%,transparent 50%);background-position:calc(100% - 20px) 52%,calc(100% - 15px) 52%;background-size:5px 5px;background-repeat:no-repeat;padding-right:40px}
+.field textarea{min-height:120px;resize:vertical;line-height:1.5}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--char);background:var(--white);box-shadow:0 0 0 4px rgba(255,122,26,.18)}
+.field.bad input,.field.bad select,.field.bad textarea{border-color:#c2410c;background-color:#fff7f2}
+.err{font-size:13px;color:#b23a0a;min-height:0}
+.err:empty{display:none}
+.chips-opt{display:flex;flex-wrap:wrap;gap:8px}
+.chip-opt{position:relative;cursor:pointer}
+.chip-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.chip-opt span{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;border:1px solid var(--rule);background:var(--paper);font-size:14px;color:var(--ink);transition:background .25s,border-color .25s,color .25s}
+.chip-opt span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--steel-2);transition:background .25s,box-shadow .25s}
+.chip-opt:hover span{border-color:var(--steel)}
+.chip-opt input:checked+span{background:var(--char);border-color:var(--char);color:var(--on-dark)}
+.chip-opt input:checked+span::before{background:var(--china);box-shadow:0 0 0 3px rgba(255,122,26,.25)}
+.chip-opt input:focus-visible+span{outline:2px solid var(--china);outline-offset:2px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg label{position:relative;cursor:pointer}
+.seg input{position:absolute;opacity:0;width:1px;height:1px}
+.seg span{display:inline-block;padding:9px 14px;border-radius:10px;border:1px solid var(--rule);background:var(--paper);font-size:14px;transition:background .25s,color .25s,border-color .25s}
+.seg input:checked+span{background:var(--char);color:var(--on-dark);border-color:var(--char)}
+.seg input:focus-visible+span{outline:2px solid var(--china);outline-offset:2px}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.qfoot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:6px}
+.qfoot small{color:var(--ink-2);font-size:13px;max-width:30em}
+.qsubmit{border:0;font-family:var(--body)}
+.qsubmit[disabled]{opacity:.7;cursor:progress}
+.qsubmit .spin{display:none;width:14px;height:14px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;animation:spin .8s linear infinite}
+.qsubmit.busy .spin{display:inline-block}
+.qsubmit.busy .arr{display:none}
+.qstatus{border-radius:14px;padding:14px 16px;font-size:14.5px}
+.qstatus:empty{display:none}
+.qstatus.warn{background:#fff4ec;border:1px solid #f6c7a3;color:#7a3207}
+.qdone{display:grid;justify-items:start;gap:14px;padding:12px 0 4px}
+.qdone .tick{width:54px;height:54px;border-radius:16px;background:var(--char);display:grid;place-items:center}
+.qdone .tick path{stroke:var(--china);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:30;stroke-dashoffset:30;animation:draw .7s .15s var(--ease) forwards}
+.qdone h3{font-size:24px}
+.qdone p{color:var(--ink-2);max-width:34em}
+@media (max-width:1060px){
+  .quote-wrap{grid-template-columns:1fr}
+  .quote-intro,.slab.quote-intro{position:relative;top:auto;padding:40px 32px}
+}
+@media (max-width:560px){
+  .quote-card{padding:28px 20px 24px}
+  .quote-intro{padding:34px 22px}
+  .qrow{grid-template-columns:1fr}
+  .qfoot .btn{width:100%;justify-content:center}
+}
 </style>
 
 
@@ -490,10 +568,11 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#sectores">Sectores</a></li>
       <li><a href="#proceso">Cómo trabajamos</a></li>
+      <li><a href="#cotizar">Cotizar</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <div class="nav-cta">
-      <a class="btn btn-dark" href="#contacto">Contáctenos</a>
+      <a class="btn btn-dark" href="#cotizar">Solicitar cotización</a>
       <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -502,6 +581,7 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#sectores">Sectores</a></li>
       <li><a href="#proceso">Cómo trabajamos</a></li>
+      <li><a href="#cotizar">Cotizar</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </div></div>
@@ -519,7 +599,7 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
           <span class="chip" data-k="0">Movimiento de tierra</span><span class="chip" data-k="1">Acero estructural</span><span class="chip" data-k="2">Sellado de techo</span><span class="chip" data-k="3">HVAC</span><span class="chip" data-k="4">Solar</span><span class="chip" data-k="5">Eléctrico</span><span class="chip" data-k="6">Pavimento</span>
         </div>
         <div class="hero-actions">
-          <a class="btn btn-light" href="#contacto">Solicitar cotización <span class="arr">→</span></a>
+          <a class="btn btn-light" href="#cotizar">Solicitar cotización <span class="arr">→</span></a>
           <a class="btn btn-ghost-dark" href="#paso">Encuentre su próximo paso <span class="arr">↓</span></a>
         </div>
       </div>
@@ -828,22 +908,22 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
     </div>
     <div class="panels">
       <div class="panel" role="tabpanel" id="p-obra" aria-labelledby="t-obra">
-        <article class="card"><span class="mono tag">Desarrolladores e inversionistas</span><h3>Desarrollar una propiedad</h3><p>Construcción nueva, acero estructural y remodelaciones, desde los permisos hasta la entrega de llaves.</p><a class="go" href="#contacto">Solicitar cotización <span class="arr">→</span></a></article>
-        <article class="card"><span class="mono tag">Comercios y propietarios</span><h3>Remodelar o ampliar</h3><p>Mejoras interiores y exteriores, techos, pintura y sistemas, coordinados en un solo calendario.</p><a class="go" href="#contacto">Coordinar visita <span class="arr">→</span></a></article>
-        <article class="card"><span class="mono tag">Todo tipo de cliente</span><h3>Diseñar el proyecto</h3><p>Planos, inspección y gerencia de proyecto con ingenieros y arquitectos licenciados.</p><a class="go" href="#contacto">Enviar su idea <span class="arr">→</span></a></article>
+        <article class="card"><span class="mono tag">Desarrolladores e inversionistas</span><h3>Desarrollar una propiedad</h3><p>Construcción nueva, acero estructural y remodelaciones, desde los permisos hasta la entrega de llaves.</p><a class="go" href="#cotizar" data-svc="construccion">Solicitar cotización <span class="arr">→</span></a></article>
+        <article class="card"><span class="mono tag">Comercios y propietarios</span><h3>Remodelar o ampliar</h3><p>Mejoras interiores y exteriores, techos, pintura y sistemas, coordinados en un solo calendario.</p><a class="go" href="#cotizar" data-svc="construccion">Coordinar visita <span class="arr">→</span></a></article>
+        <article class="card"><span class="mono tag">Todo tipo de cliente</span><h3>Diseñar el proyecto</h3><p>Planos, inspección y gerencia de proyecto con ingenieros y arquitectos licenciados.</p><a class="go" href="#cotizar" data-svc="diseno">Enviar su idea <span class="arr">→</span></a></article>
       </div>
       <div class="panel" role="tabpanel" id="p-ind" aria-labelledby="t-ind" hidden>
-        <article class="card"><span class="mono tag">Plantas y farmacéuticas</span><h3>Mantener la planta operando</h3><p>Mantenimiento de facilidades, trabajo eléctrico, mecánico y recubrimientos sin detener la producción.</p><a class="go" href="#contacto">Hablar con un PM <span class="arr">→</span></a></article>
-        <article class="card"><span class="mono tag">Municipios y agencias</span><h3>Ejecutar obra pública</h3><p>Subastas, carreteras, parques y facilidades, con la documentación y los informes al día.</p><a class="go" href="#contacto">Enviar pliego <span class="arr">→</span></a></article>
-        <article class="card"><span class="mono tag">Hospitales y hoteles</span><h3>Mejorar facilidades críticas</h3><p>Trabajos en edificios ocupados, con planes de seguridad y horarios que protegen su operación.</p><a class="go" href="#contacto">Solicitar cotización <span class="arr">→</span></a></article>
+        <article class="card"><span class="mono tag">Plantas y farmacéuticas</span><h3>Mantener la planta operando</h3><p>Mantenimiento de facilidades, trabajo eléctrico, mecánico y recubrimientos sin detener la producción.</p><a class="go" href="#cotizar" data-svc="mantenimiento">Hablar con un PM <span class="arr">→</span></a></article>
+        <article class="card"><span class="mono tag">Municipios y agencias</span><h3>Ejecutar obra pública</h3><p>Subastas, carreteras, parques y facilidades, con la documentación y los informes al día.</p><a class="go" href="#cotizar" data-svc="infraestructura">Enviar pliego <span class="arr">→</span></a></article>
+        <article class="card"><span class="mono tag">Hospitales y hoteles</span><h3>Mejorar facilidades críticas</h3><p>Trabajos en edificios ocupados, con planes de seguridad y horarios que protegen su operación.</p><a class="go" href="#cotizar" data-svc="construccion">Solicitar cotización <span class="arr">→</span></a></article>
       </div>
       <div class="panel" role="tabpanel" id="p-sitio" aria-labelledby="t-sitio" hidden>
-        <article class="card"><span class="mono tag">Desarrolladores y propietarios</span><h3>Preparar un terreno</h3><p>Limpieza de vegetación densa, movimiento de tierra, nivelación y pavimento.</p><a class="go" href="#contacto">Solicitar cotización <span class="arr">→</span></a></article>
-        <article class="card"><span class="mono tag">Comercios</span><h3>Bajar la factura de luz</h3><p>Análisis de Energy Management y sistema solar comercial con un pago fijo y predecible.</p><a class="go" href="#contacto">Solicitar análisis <span class="arr">→</span></a></article>
-        <article class="card"><span class="mono tag">Hogares</span><h3>Instalar placas solares</h3><p>Sistemas residenciales con baterías, instalados por nuestro propio personal.</p><a class="go" href="#contacto">Solicitar cotización <span class="arr">→</span></a></article>
+        <article class="card"><span class="mono tag">Desarrolladores y propietarios</span><h3>Preparar un terreno</h3><p>Limpieza de vegetación densa, movimiento de tierra, nivelación y pavimento.</p><a class="go" href="#cotizar" data-svc="tierra">Solicitar cotización <span class="arr">→</span></a></article>
+        <article class="card"><span class="mono tag">Comercios</span><h3>Bajar la factura de luz</h3><p>Análisis de Energy Management y sistema solar comercial con un pago fijo y predecible.</p><a class="go" href="#cotizar" data-svc="solar">Solicitar análisis <span class="arr">→</span></a></article>
+        <article class="card"><span class="mono tag">Hogares</span><h3>Instalar placas solares</h3><p>Sistemas residenciales con baterías, instalados por nuestro propio personal.</p><a class="go" href="#cotizar" data-svc="solar">Solicitar cotización <span class="arr">→</span></a></article>
       </div>
     </div>
-    <p class="help">¿No sabe por dónde empezar? Llame al <a href="tel:+17879756728">787-975-6728</a> o <a href="#contacto">escríbanos</a>.</p>
+    <p class="help">¿No sabe por dónde empezar? Llame al <a href="tel:+17879756728">787-975-6728</a> o <a href="#cotizar">escríbanos</a>.</p>
   </div>
 </section>
 
@@ -1154,6 +1234,202 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
     </div>
   </div>
 </section>
+
+<section class="quote" id="cotizar" aria-labelledby="q-title">
+  <div class="wrap quote-wrap">
+    <div class="slab bg-b quote-intro"><div class="bgimg" aria-hidden="true"></div>
+      <span class="eyebrow" data-i18n-es="Cotización" data-i18n-en="Request a quote">Cotización</span>
+      <h2 id="q-title" data-i18n-es="Cuéntenos de su proyecto." data-i18n-en="Tell us about your project.">Cuéntenos de su proyecto.</h2>
+      <p data-i18n-es="Complete el formulario y un Project Manager le contacta para coordinar la visita al sitio." data-i18n-en="Fill out the form and a Project Manager will contact you to schedule a site visit.">Complete el formulario y un Project Manager le contacta para coordinar la visita al sitio.</p>
+      <ol class="quote-steps">
+        <li><b>1</b><span data-i18n-es="Recibimos su solicitud y la revisamos." data-i18n-en="We receive and review your request.">Recibimos su solicitud y la revisamos.</span></li>
+        <li><b>2</b><span data-i18n-es="Le llamamos para aclarar el alcance y coordinar la visita." data-i18n-en="We call you to clarify the scope and schedule a visit.">Le llamamos para aclarar el alcance y coordinar la visita.</span></li>
+        <li><b>3</b><span data-i18n-es="Le enviamos una propuesta con alcance, calendario y precio." data-i18n-en="We send a proposal with scope, schedule and price.">Le enviamos una propuesta con alcance, calendario y precio.</span></li>
+      </ol>
+      <div class="quote-direct">
+        <span data-i18n-es="¿Prefiere llamar?" data-i18n-en="Prefer to call?">¿Prefiere llamar?</span>
+        <a href="tel:+17879756728">787-975-6728</a>
+        <a href="mailto:metakoreservices@gmail.com" style="overflow-wrap:anywhere">metakoreservices@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="quote-card">
+      <div class="qhead">
+        <h3 data-i18n-es="Solicitud de cotización" data-i18n-en="Quote request">Solicitud de cotización</h3>
+        <div class="lang" id="qlang" data-lang="es" role="group" aria-label="Idioma del formulario / Form language">
+          <span class="pill" aria-hidden="true"></span>
+          <button type="button" data-l="es" aria-pressed="true">ESPAÑOL</button>
+          <button type="button" data-l="en" aria-pressed="false">ENGLISH</button>
+        </div>
+      </div>
+
+      <form class="qform" id="qform" novalidate>
+        <fieldset class="qgroup">
+          <legend data-n="1" data-i18n-es="Sus datos" data-i18n-en="Your information">Sus datos</legend>
+          <div class="qrow">
+            <div class="field"><label for="q-nombre" data-i18n-es="Nombre completo" data-i18n-en="Full name">Nombre completo</label>
+              <input id="q-nombre" name="nombre" autocomplete="name" required><span class="err"></span></div>
+            <div class="field"><label for="q-empresa"><span data-i18n-es="Empresa u organización" data-i18n-en="Company or organization">Empresa u organización</span> <span class="opt" data-i18n-es="(opcional)" data-i18n-en="(optional)">(opcional)</span></label>
+              <input id="q-empresa" name="empresa" autocomplete="organization"><span class="err"></span></div>
+          </div>
+          <div class="qrow">
+            <div class="field"><label for="q-tel" data-i18n-es="Teléfono" data-i18n-en="Phone">Teléfono</label>
+              <input id="q-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="787-000-0000" required><span class="err"></span></div>
+            <div class="field"><label for="q-email" data-i18n-es="Email" data-i18n-en="Email">Email</label>
+              <input id="q-email" name="email" type="email" autocomplete="email" inputmode="email" required><span class="err"></span></div>
+          </div>
+          <div class="field"><span class="lbl" id="q-tipo-l" data-i18n-es="Tipo de cliente" data-i18n-en="Client type">Tipo de cliente</span>
+            <div class="seg" role="radiogroup" aria-labelledby="q-tipo-l">
+              <label><input type="radio" name="tipo" value="residencial" id="q-tipo-1"><span data-i18n-es="Residencial" data-i18n-en="Residential">Residencial</span></label>
+              <label><input type="radio" name="tipo" value="comercial" id="q-tipo-2"><span data-i18n-es="Comercial" data-i18n-en="Commercial">Comercial</span></label>
+              <label><input type="radio" name="tipo" value="industrial" id="q-tipo-3"><span data-i18n-es="Industrial" data-i18n-en="Industrial">Industrial</span></label>
+              <label><input type="radio" name="tipo" value="gobierno" id="q-tipo-4"><span data-i18n-es="Gobierno o municipio" data-i18n-en="Government or municipality">Gobierno o municipio</span></label>
+              <label><input type="radio" name="tipo" value="desarrollador" id="q-tipo-5"><span data-i18n-es="Desarrollador" data-i18n-en="Developer">Desarrollador</span></label>
+            </div><span class="err" id="q-tipo-err"></span></div>
+        </fieldset>
+
+        <fieldset class="qgroup">
+          <legend data-n="2" data-i18n-es="Servicio que necesita" data-i18n-en="Service you need">Servicio que necesita</legend>
+          <div class="field"><span class="lbl" data-i18n-es="Seleccione uno o más" data-i18n-en="Select one or more">Seleccione uno o más</span>
+            <div class="chips-opt" id="q-servicios">
+          <label class="chip-opt"><input type="checkbox" name="servicios" value="construccion" data-es="Construcción y acero estructural" data-en="Construction & structural steel"><span data-i18n-es="Construcción y acero estructural" data-i18n-en="Construction & structural steel">Construcción y acero estructural</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicios" value="infraestructura" data-es="Infraestructura y pavimento" data-en="Infrastructure & paving"><span data-i18n-es="Infraestructura y pavimento" data-i18n-en="Infrastructure & paving">Infraestructura y pavimento</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicios" value="electrico" data-es="Electricidad" data-en="Electrical"><span data-i18n-es="Electricidad" data-i18n-en="Electrical">Electricidad</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicios" value="hvac" data-es="Mecánico y HVAC" data-en="Mechanical & HVAC"><span data-i18n-es="Mecánico y HVAC" data-i18n-en="Mechanical & HVAC">Mecánico y HVAC</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicios" value="recubrimientos" data-es="Sellado, pintura y recubrimientos" data-en="Roofing, painting & coatings"><span data-i18n-es="Sellado, pintura y recubrimientos" data-i18n-en="Roofing, painting & coatings">Sellado, pintura y recubrimientos</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicios" value="tierra" data-es="Movimiento de tierra y limpieza" data-en="Earthwork & land clearing"><span data-i18n-es="Movimiento de tierra y limpieza" data-i18n-en="Earthwork & land clearing">Movimiento de tierra y limpieza</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicios" value="mantenimiento" data-es="Mantenimiento de facilidades" data-en="Facility maintenance"><span data-i18n-es="Mantenimiento de facilidades" data-i18n-en="Facility maintenance">Mantenimiento de facilidades</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicios" value="solar" data-es="Energía solar" data-en="Solar energy"><span data-i18n-es="Energía solar" data-i18n-en="Solar energy">Energía solar</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicios" value="diseno" data-es="Diseño y gerencia de proyectos" data-en="Design & project management"><span data-i18n-es="Diseño y gerencia de proyectos" data-i18n-en="Design & project management">Diseño y gerencia de proyectos</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicios" value="otro" data-es="Otro" data-en="Other"><span data-i18n-es="Otro" data-i18n-en="Other">Otro</span></label>
+            </div><span class="err" id="q-serv-err"></span></div>
+          <div class="field"><label for="q-desc"><span data-i18n-es="Describa el trabajo" data-i18n-en="Describe the work">Describa el trabajo</span> <span class="opt" data-i18n-es="(opcional)" data-i18n-en="(optional)">(opcional)</span></label>
+            <textarea id="q-desc" name="descripcion" data-ph-es="Ej.: sellado de techo de 5,000 pies² en un almacén comercial." data-ph-en="E.g.: roof sealing for a 5,000 sq ft commercial warehouse." placeholder="Ej.: sellado de techo de 5,000 pies² en un almacén comercial."></textarea><span class="err"></span></div>
+          <div class="field"><label for="q-cuando" data-i18n-es="¿Cuándo quiere comenzar?" data-i18n-en="When do you want to start?">¿Cuándo quiere comenzar?</label>
+            <select id="q-cuando" name="inicio">
+              <option value="" data-i18n-es="Seleccione" data-i18n-en="Select">Seleccione</option>
+              <option value="pronto" data-i18n-es="Lo antes posible" data-i18n-en="As soon as possible">Lo antes posible</option>
+              <option value="1-3m" data-i18n-es="En 1 a 3 meses" data-i18n-en="In 1 to 3 months">En 1 a 3 meses</option>
+              <option value="3-6m" data-i18n-es="En 3 a 6 meses" data-i18n-en="In 3 to 6 months">En 3 a 6 meses</option>
+              <option value="explorando" data-i18n-es="Solo estoy explorando" data-i18n-en="Just exploring">Solo estoy explorando</option>
+            </select><span class="err"></span></div>
+        </fieldset>
+
+        <fieldset class="qgroup">
+          <legend data-n="3" data-i18n-es="Ubicación del proyecto" data-i18n-en="Project location">Ubicación del proyecto</legend>
+          <div class="qrow">
+            <div class="field"><label for="q-muni" data-i18n-es="Municipio" data-i18n-en="Municipality">Municipio</label>
+              <select id="q-muni" name="municipio" required>
+              <option value="" data-i18n-es="Seleccione el municipio" data-i18n-en="Select the municipality">Seleccione el municipio</option>
+              <option value="Adjuntas">Adjuntas</option>
+              <option value="Aguada">Aguada</option>
+              <option value="Aguadilla">Aguadilla</option>
+              <option value="Aguas Buenas">Aguas Buenas</option>
+              <option value="Aibonito">Aibonito</option>
+              <option value="Añasco">Añasco</option>
+              <option value="Arecibo">Arecibo</option>
+              <option value="Arroyo">Arroyo</option>
+              <option value="Barceloneta">Barceloneta</option>
+              <option value="Barranquitas">Barranquitas</option>
+              <option value="Bayamón">Bayamón</option>
+              <option value="Cabo Rojo">Cabo Rojo</option>
+              <option value="Caguas">Caguas</option>
+              <option value="Camuy">Camuy</option>
+              <option value="Canóvanas">Canóvanas</option>
+              <option value="Carolina">Carolina</option>
+              <option value="Cataño">Cataño</option>
+              <option value="Cayey">Cayey</option>
+              <option value="Ceiba">Ceiba</option>
+              <option value="Ciales">Ciales</option>
+              <option value="Cidra">Cidra</option>
+              <option value="Coamo">Coamo</option>
+              <option value="Comerío">Comerío</option>
+              <option value="Corozal">Corozal</option>
+              <option value="Culebra">Culebra</option>
+              <option value="Dorado">Dorado</option>
+              <option value="Fajardo">Fajardo</option>
+              <option value="Florida">Florida</option>
+              <option value="Guánica">Guánica</option>
+              <option value="Guayama">Guayama</option>
+              <option value="Guayanilla">Guayanilla</option>
+              <option value="Guaynabo">Guaynabo</option>
+              <option value="Gurabo">Gurabo</option>
+              <option value="Hatillo">Hatillo</option>
+              <option value="Hormigueros">Hormigueros</option>
+              <option value="Humacao">Humacao</option>
+              <option value="Isabela">Isabela</option>
+              <option value="Jayuya">Jayuya</option>
+              <option value="Juana Díaz">Juana Díaz</option>
+              <option value="Juncos">Juncos</option>
+              <option value="Lajas">Lajas</option>
+              <option value="Lares">Lares</option>
+              <option value="Las Marías">Las Marías</option>
+              <option value="Las Piedras">Las Piedras</option>
+              <option value="Loíza">Loíza</option>
+              <option value="Luquillo">Luquillo</option>
+              <option value="Manatí">Manatí</option>
+              <option value="Maricao">Maricao</option>
+              <option value="Maunabo">Maunabo</option>
+              <option value="Mayagüez">Mayagüez</option>
+              <option value="Moca">Moca</option>
+              <option value="Morovis">Morovis</option>
+              <option value="Naguabo">Naguabo</option>
+              <option value="Naranjito">Naranjito</option>
+              <option value="Orocovis">Orocovis</option>
+              <option value="Patillas">Patillas</option>
+              <option value="Peñuelas">Peñuelas</option>
+              <option value="Ponce">Ponce</option>
+              <option value="Quebradillas">Quebradillas</option>
+              <option value="Rincón">Rincón</option>
+              <option value="Río Grande">Río Grande</option>
+              <option value="Sabana Grande">Sabana Grande</option>
+              <option value="Salinas">Salinas</option>
+              <option value="San Germán">San Germán</option>
+              <option value="San Juan">San Juan</option>
+              <option value="San Lorenzo">San Lorenzo</option>
+              <option value="San Sebastián">San Sebastián</option>
+              <option value="Santa Isabel">Santa Isabel</option>
+              <option value="Toa Alta">Toa Alta</option>
+              <option value="Toa Baja">Toa Baja</option>
+              <option value="Trujillo Alto">Trujillo Alto</option>
+              <option value="Utuado">Utuado</option>
+              <option value="Vega Alta">Vega Alta</option>
+              <option value="Vega Baja">Vega Baja</option>
+              <option value="Vieques">Vieques</option>
+              <option value="Villalba">Villalba</option>
+              <option value="Yabucoa">Yabucoa</option>
+              <option value="Yauco">Yauco</option>
+              <option value="Fuera de Puerto Rico" data-i18n-es="Fuera de Puerto Rico" data-i18n-en="Outside Puerto Rico">Fuera de Puerto Rico</option>
+              </select><span class="err"></span></div>
+            <div class="field"><label for="q-dir"><span data-i18n-es="Barrio, sector o dirección" data-i18n-en="Neighborhood, area or address">Barrio, sector o dirección</span> <span class="opt" data-i18n-es="(opcional)" data-i18n-en="(optional)">(opcional)</span></label>
+              <input id="q-dir" name="direccion" autocomplete="street-address"><span class="err"></span></div>
+          </div>
+          <div class="field"><span class="lbl" id="q-pref-l" data-i18n-es="¿Cómo prefiere que le contactemos?" data-i18n-en="How should we contact you?">¿Cómo prefiere que le contactemos?</span>
+            <div class="seg" role="radiogroup" aria-labelledby="q-pref-l">
+              <label><input type="radio" name="contacto" value="llamada" id="q-pref-1" checked><span data-i18n-es="Llamada" data-i18n-en="Phone call">Llamada</span></label>
+              <label><input type="radio" name="contacto" value="whatsapp" id="q-pref-2"><span>WhatsApp</span></label>
+              <label><input type="radio" name="contacto" value="email" id="q-pref-3"><span>Email</span></label>
+            </div></div>
+        </fieldset>
+
+        <div class="hp" aria-hidden="true"><label for="q-web">Website</label><input id="q-web" name="_honey" tabindex="-1" autocomplete="off"></div>
+
+        <div class="qstatus" id="qstatus" role="status" aria-live="polite"></div>
+        <div class="qfoot">
+          <small data-i18n-es="Usamos esta información solo para responder a su solicitud." data-i18n-en="We only use this information to respond to your request.">Usamos esta información solo para responder a su solicitud.</small>
+          <button class="btn btn-dark qsubmit" type="submit" id="qsubmit"><span data-i18n-es="Enviar solicitud" data-i18n-en="Send request">Enviar solicitud</span> <span class="arr">→</span><span class="spin" aria-hidden="true"></span></button>
+        </div>
+      </form>
+
+      <div class="qdone" id="qdone" hidden tabindex="-1">
+        <div class="tick"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M6 14.5l5.2 5.2L22 8.8"/></svg></div>
+        <h3 data-i18n-es="Recibimos su solicitud." data-i18n-en="We received your request.">Recibimos su solicitud.</h3>
+        <p data-i18n-es="Un Project Manager de Metakore le contactará en un día laborable. Si es urgente, llame al 787-975-6728." data-i18n-en="A Metakore Project Manager will contact you within one business day. If it is urgent, call 787-975-6728.">Un Project Manager de Metakore le contactará en un día laborable. Si es urgente, llame al 787-975-6728.</p>
+        <button type="button" class="btn" id="qagain" data-i18n-es="Enviar otra solicitud" data-i18n-en="Send another request">Enviar otra solicitud</button>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="end" id="contacto">
@@ -1162,7 +1438,7 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
       <div class="end-top">
         <h2>Construyamos su próximo proyecto.</h2>
         <div class="hero-actions">
-          <a class="btn btn-light" href="mailto:metakoreservices@gmail.com">Contáctenos</a>
+          <a class="btn btn-light" href="#cotizar">Solicitar cotización</a>
           <a class="btn btn-ghost-dark" href="tel:+17879756728">Llame al 787-975-6728</a>
         </div>
       </div>
@@ -1300,5 +1576,102 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
 })();
 </script>
 
+
+<script>
+(function(){
+  var ENDPOINT = 'https://formsubmit.co/ajax/metakoreservices@gmail.com';
+  var form = document.getElementById('qform'); if(!form) return;
+  var langBox = document.getElementById('qlang');
+  var section = document.getElementById('cotizar');
+  var statusEl = document.getElementById('qstatus');
+  var btn = document.getElementById('qsubmit');
+  var done = document.getElementById('qdone');
+  var lang = 'es';
+  var MSG = {
+    es:{req:'Este campo es requerido.', email:'Escriba un email válido.', tel:'Escriba un teléfono válido (10 dígitos).', serv:'Seleccione al menos un servicio.', tipo:'Seleccione el tipo de cliente.',
+        fail:'No pudimos enviar la solicitud. Intente de nuevo, o llame al 787-975-6728.', subject:'Nueva solicitud de cotización'},
+    en:{req:'This field is required.', email:'Enter a valid email.', tel:'Enter a valid phone number (10 digits).', serv:'Select at least one service.', tipo:'Select the client type.',
+        fail:'We could not send your request. Try again, or call 787-975-6728.', subject:'New quote request'}
+  };
+  function setLang(l){
+    lang = l; langBox.setAttribute('data-lang', l);
+    langBox.querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.l === l ? 'true' : 'false'); });
+    section.setAttribute('lang', l);
+    section.querySelectorAll('[data-i18n-' + l + ']').forEach(function(el){ el.textContent = el.getAttribute('data-i18n-' + l); });
+    section.querySelectorAll('[data-ph-' + l + ']').forEach(function(el){ el.placeholder = el.getAttribute('data-ph-' + l); });
+    form.querySelectorAll('.field.bad').forEach(function(f){ validate(f); });
+    try{ localStorage.setItem('mk-form-lang', l); }catch(e){}
+  }
+  langBox.addEventListener('click', function(e){ var b = e.target.closest('button[data-l]'); if(b) setLang(b.dataset.l); });
+  try{ var saved = localStorage.getItem('mk-form-lang'); if(saved === 'en') setLang('en'); }catch(e){}
+
+  function fieldOf(el){ return el.closest('.field'); }
+  function setErr(f, msg){ if(!f) return; f.classList.toggle('bad', !!msg); var e = f.querySelector('.err'); if(e) e.textContent = msg || ''; }
+  function validate(f){
+    var m = MSG[lang], el = f.querySelector('input:not([type=radio]):not([type=checkbox]),select,textarea');
+    if(f.querySelector('#q-servicios')){ var any = form.querySelectorAll('input[name=servicios]:checked').length; setErr(f, any ? '' : m.serv); return !!any; }
+    if(f.querySelector('input[name=tipo]')){ var t = form.querySelector('input[name=tipo]:checked'); setErr(f, t ? '' : m.tipo); return !!t; }
+    if(!el || !el.required){ setErr(f, ''); return true; }
+    var v = (el.value || '').trim();
+    if(!v){ setErr(f, m.req); return false; }
+    if(el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){ setErr(f, m.email); return false; }
+    if(el.type === 'tel' && v.replace(/\D/g,'').length < 10){ setErr(f, m.tel); return false; }
+    setErr(f, ''); return true;
+  }
+  form.addEventListener('input', function(e){ var f = fieldOf(e.target); if(f && f.classList.contains('bad')) validate(f); });
+  form.addEventListener('change', function(e){ var f = fieldOf(e.target); if(f && f.classList.contains('bad')) validate(f); });
+  form.querySelectorAll('input[required],select[required]').forEach(function(el){ el.addEventListener('blur', function(){ if(el.value) validate(fieldOf(el)); }); });
+
+  // links like <a href="#cotizar" data-svc="solar"> preselect a service
+  document.querySelectorAll('a[href="#cotizar"][data-svc]').forEach(function(a){
+    a.addEventListener('click', function(){ var c = form.querySelector('input[name=servicios][value="' + a.dataset.svc + '"]'); if(c){ c.checked = true; var f = fieldOf(c); if(f) setErr(f, ''); } });
+  });
+
+  function labelOf(input){ return input.getAttribute('data-' + 'es') || input.value; }
+  function radioText(name){ var r = form.querySelector('input[name=' + name + ']:checked'); return r ? r.nextElementSibling.getAttribute('data-i18n-es') || r.nextElementSibling.textContent : ''; }
+  function optText(sel){ var o = sel.options[sel.selectedIndex]; return o && o.value ? (o.getAttribute('data-i18n-es') || o.textContent) : ''; }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    statusEl.textContent = ''; statusEl.className = 'qstatus';
+    var fields = form.querySelectorAll('.field'), ok = true, first = null;
+    fields.forEach(function(f){ if(!validate(f)){ ok = false; if(!first) first = f; } });
+    if(!ok){ var t = first.querySelector('input,select,textarea'); if(t) t.focus(); first.scrollIntoView({behavior:'smooth', block:'center'}); return; }
+    if(form._honey && form._honey.value) return;
+    var servicios = Array.prototype.map.call(form.querySelectorAll('input[name=servicios]:checked'), labelOf).join(', ');
+    var data = {
+      'Nombre': form.nombre.value.trim(),
+      'Empresa': form.empresa.value.trim() || '—',
+      'Teléfono': form.telefono.value.trim(),
+      'Email': form.email.value.trim(),
+      'Tipo de cliente': radioText('tipo'),
+      'Servicios': servicios,
+      'Descripción': form.descripcion.value.trim() || '—',
+      'Inicio': optText(form.inicio) || '—',
+      'Municipio': form.municipio.value,
+      'Dirección / sector': form.direccion.value.trim() || '—',
+      'Contactar por': radioText('contacto'),
+      'Idioma del cliente': lang === 'en' ? 'Inglés' : 'Español',
+      '_subject': MSG.es.subject + ' · ' + form.municipio.value + ' · ' + servicios,
+      '_replyto': form.email.value.trim(),
+      '_template': 'table',
+      '_captcha': 'false'
+    };
+    btn.disabled = true; btn.classList.add('busy');
+    fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(data)})
+      .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ if(!r.ok || String(j.success) === 'false') throw new Error(j.message || r.status); }); })
+      .then(function(){
+        form.hidden = true; done.hidden = false; done.focus({preventScroll:true});
+        section.scrollIntoView({behavior:'smooth', block:'start'});
+      })
+      .catch(function(){ statusEl.className = 'qstatus warn'; statusEl.textContent = MSG[lang].fail; })
+      .then(function(){ btn.disabled = false; btn.classList.remove('busy'); });
+  });
+  document.getElementById('qagain').addEventListener('click', function(){
+    form.reset(); form.querySelectorAll('.field.bad').forEach(function(f){ setErr(f,''); });
+    done.hidden = true; form.hidden = false; form.nombre.focus();
+  });
+})();
+</script>
 </body>
 </html>
