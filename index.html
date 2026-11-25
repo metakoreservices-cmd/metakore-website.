@@ -558,6 +558,22 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
   .qrow{grid-template-columns:1fr}
   .qfoot .btn{width:100%;justify-content:center}
 }
+
+/* ---------- client logos ---------- */
+.clients{padding-block:52px 8px}
+.clients-head{display:flex;justify-content:center;margin-bottom:26px}
+.clients-track{display:flex;width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.clients-row{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:72px;padding-right:72px;flex:none;animation:clients 42s linear infinite}
+.clients-track:hover .clients-row{animation-play-state:paused}
+.clients-row li{flex:none;display:flex;align-items:center}
+.clients-row img{height:46px;width:auto;max-width:none;display:block;opacity:.85;transition:opacity .35s}
+.clients-row li:hover img{opacity:1}
+@keyframes clients{to{transform:translateX(-100%)}}
+.clients-row img[src$="gsa.png"]{height:38px}.clients-row img[src$="boston-scientific.png"],.clients-row img[src$="cee-puerto-rico.png"]{height:54px}.clients-row img[src$="codomec.png"],.clients-row img[src$="bacardi.png"]{height:40px}
+@media (max-width:560px){.clients-row img[src$="gsa.png"]{height:28px}.clients-row img[src$="boston-scientific.png"],.clients-row img[src$="cee-puerto-rico.png"]{height:40px}.clients-row img[src$="codomec.png"],.clients-row img[src$="bacardi.png"]{height:30px}}
+
+@media (max-width:560px){.clients{padding-block:40px 0}.clients-row{gap:44px;padding-right:44px;animation-duration:32s}.clients-row img{height:34px}}
+@media (prefers-reduced-motion:reduce){.clients-row{animation:none}.clients-track{flex-wrap:wrap;justify-content:center;-webkit-mask-image:none;mask-image:none}.clients-row{flex-wrap:wrap;justify-content:center;row-gap:28px;padding-inline:16px}.clients-row[aria-hidden]{display:none}}
 </style>
 
 
@@ -894,6 +910,16 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
   </div>
 </section>
 
+
+<section class="clients" aria-labelledby="clients-t">
+  <div class="wrap clients-head">
+    <span class="eyebrow" id="clients-t">Empresas y agencias donde hemos trabajado</span>
+  </div>
+  <div class="clients-track">
+    <ul class="clients-row"><li><img src="img/clients/bacardi.png" alt="Bacardí" width="495" height="120" decoding="async"></li><li><img src="img/clients/boehringer-ingelheim.png" alt="Boehringer Ingelheim" width="387" height="120" decoding="async"></li><li><img src="img/clients/boston-scientific.png" alt="Boston Scientific" width="271" height="120" decoding="async"></li><li><img src="img/clients/viatris.png" alt="Viatris" width="428" height="120" decoding="async"></li><li><img src="img/clients/cee-puerto-rico.png" alt="Comisión Estatal de Elecciones de Puerto Rico" width="388" height="120" decoding="async"></li><li><img src="img/clients/gsa.png" alt="U.S. General Services Administration" width="297" height="120" decoding="async"></li><li><img src="img/clients/codomec.png" alt="Codomec & Global Associate" width="533" height="120" decoding="async"></li></ul>
+    <ul class="clients-row" aria-hidden="true"><li><img src="img/clients/bacardi.png" alt="" width="495" height="120" decoding="async"></li><li><img src="img/clients/boehringer-ingelheim.png" alt="" width="387" height="120" decoding="async"></li><li><img src="img/clients/boston-scientific.png" alt="" width="271" height="120" decoding="async"></li><li><img src="img/clients/viatris.png" alt="" width="428" height="120" decoding="async"></li><li><img src="img/clients/cee-puerto-rico.png" alt="" width="388" height="120" decoding="async"></li><li><img src="img/clients/gsa.png" alt="" width="297" height="120" decoding="async"></li><li><img src="img/clients/codomec.png" alt="" width="533" height="120" decoding="async"></li></ul>
+  </div>
+</section>
 <section class="sec" id="paso">
   <div class="wrap">
     <div class="sec-head">
