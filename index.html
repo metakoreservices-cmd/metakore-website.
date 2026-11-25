@@ -8,6 +8,8 @@
 <meta property="og:description" content="Construimos, energizamos y mantenemos. Nueve especialidades bajo un solo responsable.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#1c1c1e">
+<link rel="preconnect" href="https://formsubmit.co" crossorigin>
+<link rel="preconnect" href="https://api.web3forms.com" crossorigin>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:image" content="https://metakore-services.vercel.app/img/og.jpg">
@@ -539,6 +541,7 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
 .qsubmit.busy .arr{display:none}
 .qstatus{border-radius:14px;padding:14px 16px;font-size:14.5px}
 .qstatus:empty{display:none}
+.qstatus:not(.warn){background:var(--paper);border:1px solid var(--rule);color:var(--ink-2)}
 .qstatus.warn{background:#fff4ec;border:1px solid #f6c7a3;color:#7a3207}
 .qdone{display:grid;justify-items:start;gap:14px;padding:12px 0 4px}
 .qdone .tick{width:54px;height:54px;border-radius:16px;background:var(--char);display:grid;place-items:center}
@@ -1579,7 +1582,11 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
 
 <script>
 (function(){
-  var ENDPOINT = 'https://formsubmit.co/ajax/metakoreservices@gmail.com';
+  // Where submissions go. With a Web3Forms access key set here, the form uses Web3Forms (faster);
+  // otherwise it uses FormSubmit, which emails metakoreservices@gmail.com.
+  var WEB3FORMS_KEY = '';
+  var ENDPOINT = WEB3FORMS_KEY ? 'https://api.web3forms.com/submit' : 'https://formsubmit.co/ajax/metakoreservices@gmail.com';
+  var TIMEOUT_MS = 30000, SLOW_MS = 4000;
   var form = document.getElementById('qform'); if(!form) return;
   var langBox = document.getElementById('qlang');
   var section = document.getElementById('cotizar');
@@ -1589,9 +1596,9 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
   var lang = 'es';
   var MSG = {
     es:{req:'Este campo es requerido.', email:'Escriba un email válido.', tel:'Escriba un teléfono válido (10 dígitos).', serv:'Seleccione al menos un servicio.', tipo:'Seleccione el tipo de cliente.',
-        fail:'No pudimos enviar la solicitud. Intente de nuevo, o llame al 787-975-6728.', subject:'Nueva solicitud de cotización'},
+        fail:'No pudimos enviar la solicitud. Intente de nuevo, o llame al 787-975-6728.', slow:'Enviando… la conexión está lenta, puede tardar unos segundos más.', timeout:'El envío está tardando demasiado. Puede que haya llegado; si no le contactamos hoy, llame al 787-975-6728.', sending:'Enviando…', subject:'Nueva solicitud de cotización'},
     en:{req:'This field is required.', email:'Enter a valid email.', tel:'Enter a valid phone number (10 digits).', serv:'Select at least one service.', tipo:'Select the client type.',
-        fail:'We could not send your request. Try again, or call 787-975-6728.', subject:'New quote request'}
+        fail:'We could not send your request. Try again, or call 787-975-6728.', slow:'Sending… the connection is slow, this may take a few more seconds.', timeout:'Sending is taking too long. It may have gone through; if we have not contacted you today, call 787-975-6728.', sending:'Sending…', subject:'New quote request'}
   };
   function setLang(l){
     lang = l; langBox.setAttribute('data-lang', l);
@@ -1604,6 +1611,11 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
   }
   langBox.addEventListener('click', function(e){ var b = e.target.closest('button[data-l]'); if(b) setLang(b.dataset.l); });
   try{ var saved = localStorage.getItem('mk-form-lang'); if(saved === 'en') setLang('en'); }catch(e){}
+
+  var warmed = false;
+  function warm(){ if(warmed) return; warmed = true; try{ fetch(ENDPOINT.split('/').slice(0,3).join('/') + '/', {mode:'no-cors', cache:'no-store'}).catch(function(){}); }catch(e){} }
+  form.addEventListener('focusin', warm);
+  if('IntersectionObserver' in window){ var wo = new IntersectionObserver(function(es){ if(es.some(function(x){ return x.isIntersecting; })){ warm(); wo.disconnect(); } }, {rootMargin:'600px'}); wo.observe(section); }
 
   function fieldOf(el){ return el.closest('.field'); }
   function setErr(f, msg){ if(!f) return; f.classList.toggle('bad', !!msg); var e = f.querySelector('.err'); if(e) e.textContent = msg || ''; }
@@ -1657,15 +1669,25 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
       '_template': 'table',
       '_captcha': 'false'
     };
-    btn.disabled = true; btn.classList.add('busy');
-    fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(data)})
+    var body;
+    if(WEB3FORMS_KEY){
+      body = {access_key: WEB3FORMS_KEY, subject: data._subject, from_name: 'Sitio web Metakore', replyto: data._replyto, botcheck: ''};
+      Object.keys(data).forEach(function(k){ if(k.charAt(0) !== '_') body[k] = data[k]; });
+    } else { body = data; }
+    var label = btn.querySelector('[data-i18n-es]');
+    btn.disabled = true; btn.classList.add('busy'); if(label) label.textContent = MSG[lang].sending;
+    var ctrl = ('AbortController' in window) ? new AbortController() : null;
+    var slowT = setTimeout(function(){ statusEl.className = 'qstatus'; statusEl.textContent = MSG[lang].slow; }, SLOW_MS);
+    var killT = setTimeout(function(){ if(ctrl) ctrl.abort(); }, TIMEOUT_MS);
+    fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(body), signal: ctrl ? ctrl.signal : undefined})
       .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ if(!r.ok || String(j.success) === 'false') throw new Error(j.message || r.status); }); })
       .then(function(){
+        statusEl.textContent = ''; statusEl.className = 'qstatus';
         form.hidden = true; done.hidden = false; done.focus({preventScroll:true});
         section.scrollIntoView({behavior:'smooth', block:'start'});
       })
-      .catch(function(){ statusEl.className = 'qstatus warn'; statusEl.textContent = MSG[lang].fail; })
-      .then(function(){ btn.disabled = false; btn.classList.remove('busy'); });
+      .catch(function(err){ statusEl.className = 'qstatus warn'; statusEl.textContent = (err && err.name === 'AbortError') ? MSG[lang].timeout : MSG[lang].fail; })
+      .then(function(){ clearTimeout(slowT); clearTimeout(killT); btn.disabled = false; btn.classList.remove('busy'); if(label) label.textContent = label.getAttribute('data-i18n-' + lang); });
   });
   document.getElementById('qagain').addEventListener('click', function(){
     form.reset(); form.querySelectorAll('.field.bad').forEach(function(f){ setErr(f,''); });
