@@ -1584,7 +1584,7 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
 (function(){
   // Where submissions go. With a Web3Forms access key set here, the form uses Web3Forms (faster);
   // otherwise it uses FormSubmit, which emails metakoreservices@gmail.com.
-  var WEB3FORMS_KEY = '';
+  var WEB3FORMS_KEY = '4602fa18-fb9f-4692-980f-79be6d19efcf';
   var ENDPOINT = WEB3FORMS_KEY ? 'https://api.web3forms.com/submit' : 'https://formsubmit.co/ajax/metakoreservices@gmail.com';
   var TIMEOUT_MS = 30000, SLOW_MS = 4000;
   var form = document.getElementById('qform'); if(!form) return;
@@ -1671,7 +1671,7 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
     };
     var body;
     if(WEB3FORMS_KEY){
-      body = {access_key: WEB3FORMS_KEY, subject: data._subject, from_name: 'Sitio web Metakore', replyto: data._replyto, botcheck: ''};
+      body = {access_key: WEB3FORMS_KEY, subject: data._subject, from_name: 'Sitio web Metakore', replyto: data._replyto, botcheck: false};
       Object.keys(data).forEach(function(k){ if(k.charAt(0) !== '_') body[k] = data[k]; });
     } else { body = data; }
     var label = btn.querySelector('[data-i18n-es]');
