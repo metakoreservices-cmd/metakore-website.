@@ -310,14 +310,17 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
   .strip{grid-template-columns:repeat(2,1fr)}
   .end-grid{grid-template-columns:1fr 1fr}
 }
-@media (max-width:820px){
-  .links,.nav-cta .btn{display:none}
+@media (max-width:1040px){
+  .links{display:none}
   .menu-btn{display:block}
   .mobile-menu{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
   .mobile-menu>div{overflow:hidden}
   .menu-open .mobile-menu{grid-template-rows:1fr}
   .mobile-menu ul{list-style:none;margin:0;padding:4px 0 18px;display:grid;gap:2px}
   .mobile-menu a{display:block;padding:10px 0;text-decoration:none;font-family:var(--display);font-stretch:110%;font-weight:700;font-size:22px}
+}
+@media (max-width:820px){
+  .nav-cta .btn{display:none}
   .panel{grid-template-columns:1fr}
   .process{grid-template-columns:1fr 1fr;row-gap:36px}
   .track{display:none}
@@ -574,6 +577,18 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
 
 @media (max-width:560px){.clients{padding-block:40px 0}.clients-row{gap:44px;padding-right:44px;animation-duration:32s}.clients-row img{height:34px}}
 @media (prefers-reduced-motion:reduce){.clients-row{animation:none}.clients-track{flex-wrap:wrap;justify-content:center;-webkit-mask-image:none;mask-image:none}.clients-row{flex-wrap:wrap;justify-content:center;row-gap:28px;padding-inline:16px}.clients-row[aria-hidden]{display:none}}
+
+/* ---------- subcontractors ---------- */
+.subs{padding-top:12px}
+.sub-req{display:grid;gap:12px;margin-top:4px;padding-top:20px;border-top:1px solid var(--dark-rule)}
+.sub-req-t{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-2)}
+.sub-req ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.sub-req li{display:grid;grid-template-columns:16px 1fr;gap:10px;color:var(--on-dark);font-size:15px}
+.sub-req li::before{content:"";width:14px;height:14px;margin-top:4px;border-radius:4px;border:1.5px solid var(--china)}
+.sub-req small{color:var(--on-dark-3);font-size:13px}
+.check{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;font-size:14.5px;font-weight:400!important;color:var(--ink-2)!important;cursor:pointer}
+.field .check input{-webkit-appearance:checkbox;appearance:auto;width:20px;height:20px;margin:1px 0 0;padding:0;border-radius:4px;background:none;box-shadow:none;accent-color:var(--char)}
+.field.bad .check{color:#b23a0a!important}
 </style>
 
 
@@ -588,6 +603,7 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
       <li><a href="#sectores">Sectores</a></li>
       <li><a href="#proceso">Cómo trabajamos</a></li>
       <li><a href="#cotizar">Cotizar</a></li>
+      <li><a href="#subcontratistas">Subcontratistas</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <div class="nav-cta">
@@ -601,6 +617,7 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
       <li><a href="#sectores">Sectores</a></li>
       <li><a href="#proceso">Cómo trabajamos</a></li>
       <li><a href="#cotizar">Cotizar</a></li>
+      <li><a href="#subcontratistas">Subcontratistas</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </div></div>
@@ -1460,6 +1477,230 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
     </div>
   </div>
 </section>
+
+<section class="quote subs" id="subcontratistas" aria-labelledby="s-title">
+  <div class="wrap quote-wrap">
+    <div class="slab bg-a quote-intro"><div class="bgimg" aria-hidden="true"></div>
+      <span class="eyebrow" data-i18n-es="Subcontratistas" data-i18n-en="Subcontractors">Subcontratistas</span>
+      <h2 id="s-title" data-i18n-es="Trabaje con Metakore." data-i18n-en="Work with Metakore.">Trabaje con Metakore.</h2>
+      <p data-i18n-es="Buscamos subcontratistas registrados para proyectos comerciales, industriales, residenciales y de gobierno en todo Puerto Rico." data-i18n-en="We are looking for registered subcontractors for commercial, industrial, residential and government projects across Puerto Rico.">Buscamos subcontratistas registrados para proyectos comerciales, industriales, residenciales y de gobierno en todo Puerto Rico.</p>
+      <div class="sub-req">
+        <span class="sub-req-t" data-i18n-es="Requisitos" data-i18n-en="Requirements">Requisitos</span>
+        <ul>
+          <li data-i18n-es="Registro de contratista vigente en DACO" data-i18n-en="Current contractor registration with DACO">Registro de contratista vigente en DACO</li>
+          <li data-i18n-es="Registro de Comerciante vigente (Hacienda)" data-i18n-en="Current Merchant Registration (Hacienda)">Registro de Comerciante vigente (Hacienda)</li>
+          <li data-i18n-es="Póliza de responsabilidad pública y CFSE" data-i18n-en="General liability insurance and CFSE">Póliza de responsabilidad pública y CFSE</li>
+          <li data-i18n-es="Licencia profesional cuando el oficio lo requiera" data-i18n-en="Professional license when the trade requires it">Licencia profesional cuando el oficio lo requiera</li>
+        </ul>
+        <small data-i18n-es="Le pediremos copia de los documentos cuando le contactemos." data-i18n-en="We will ask for copies of your documents when we contact you.">Le pediremos copia de los documentos cuando le contactemos.</small>
+      </div>
+    </div>
+
+    <div class="quote-card">
+      <div class="qhead">
+        <h3 data-i18n-es="Registro de subcontratista" data-i18n-en="Subcontractor registration">Registro de subcontratista</h3>
+        <div class="lang" id="slang" data-lang="es" role="group" aria-label="Idioma del formulario / Form language">
+          <span class="pill" aria-hidden="true"></span>
+          <button type="button" data-l="es" aria-pressed="true">ESPAÑOL</button>
+          <button type="button" data-l="en" aria-pressed="false">ENGLISH</button>
+        </div>
+      </div>
+
+      <form class="qform" id="sform" novalidate>
+        <fieldset class="qgroup">
+          <legend data-n="1" data-i18n-es="Información de la compañía" data-i18n-en="Company information">Información de la compañía</legend>
+          <div class="qrow">
+            <div class="field"><label for="s-razon" data-i18n-es="Nombre legal de la compañía" data-i18n-en="Legal company name">Nombre legal de la compañía</label>
+              <input id="s-razon" name="razon" autocomplete="organization" required><span class="err"></span></div>
+            <div class="field"><label for="s-dba"><span data-i18n-es="Nombre comercial (DBA)" data-i18n-en="Trade name (DBA)">Nombre comercial (DBA)</span> <span class="opt" data-i18n-es="(opcional)" data-i18n-en="(optional)">(opcional)</span></label>
+              <input id="s-dba" name="dba"><span class="err"></span></div>
+          </div>
+          <div class="qrow">
+            <div class="field"><label for="s-contacto" data-i18n-es="Persona de contacto" data-i18n-en="Contact person">Persona de contacto</label>
+              <input id="s-contacto" name="contacto" autocomplete="name" required><span class="err"></span></div>
+            <div class="field"><label for="s-puesto"><span data-i18n-es="Puesto" data-i18n-en="Title">Puesto</span> <span class="opt" data-i18n-es="(opcional)" data-i18n-en="(optional)">(opcional)</span></label>
+              <input id="s-puesto" name="puesto" autocomplete="organization-title"><span class="err"></span></div>
+          </div>
+          <div class="qrow">
+            <div class="field"><label for="s-tel" data-i18n-es="Teléfono" data-i18n-en="Phone">Teléfono</label>
+              <input id="s-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="787-000-0000" required><span class="err"></span></div>
+            <div class="field"><label for="s-email" data-i18n-es="Email" data-i18n-en="Email">Email</label>
+              <input id="s-email" name="email" type="email" autocomplete="email" inputmode="email" required><span class="err"></span></div>
+          </div>
+          <div class="field"><label for="s-dir" data-i18n-es="Dirección física" data-i18n-en="Physical address">Dirección física</label>
+            <input id="s-dir" name="direccion" autocomplete="street-address" required><span class="err"></span></div>
+          <div class="qrow">
+            <div class="field"><label for="s-muni" data-i18n-es="Municipio" data-i18n-en="Municipality">Municipio</label>
+              <select id="s-muni" name="municipio" required>
+                <option value="" data-i18n-es="Seleccione el municipio" data-i18n-en="Select the municipality">Seleccione el municipio</option>
+                <option value="Adjuntas">Adjuntas</option>
+                <option value="Aguada">Aguada</option>
+                <option value="Aguadilla">Aguadilla</option>
+                <option value="Aguas Buenas">Aguas Buenas</option>
+                <option value="Aibonito">Aibonito</option>
+                <option value="Añasco">Añasco</option>
+                <option value="Arecibo">Arecibo</option>
+                <option value="Arroyo">Arroyo</option>
+                <option value="Barceloneta">Barceloneta</option>
+                <option value="Barranquitas">Barranquitas</option>
+                <option value="Bayamón">Bayamón</option>
+                <option value="Cabo Rojo">Cabo Rojo</option>
+                <option value="Caguas">Caguas</option>
+                <option value="Camuy">Camuy</option>
+                <option value="Canóvanas">Canóvanas</option>
+                <option value="Carolina">Carolina</option>
+                <option value="Cataño">Cataño</option>
+                <option value="Cayey">Cayey</option>
+                <option value="Ceiba">Ceiba</option>
+                <option value="Ciales">Ciales</option>
+                <option value="Cidra">Cidra</option>
+                <option value="Coamo">Coamo</option>
+                <option value="Comerío">Comerío</option>
+                <option value="Corozal">Corozal</option>
+                <option value="Culebra">Culebra</option>
+                <option value="Dorado">Dorado</option>
+                <option value="Fajardo">Fajardo</option>
+                <option value="Florida">Florida</option>
+                <option value="Guánica">Guánica</option>
+                <option value="Guayama">Guayama</option>
+                <option value="Guayanilla">Guayanilla</option>
+                <option value="Guaynabo">Guaynabo</option>
+                <option value="Gurabo">Gurabo</option>
+                <option value="Hatillo">Hatillo</option>
+                <option value="Hormigueros">Hormigueros</option>
+                <option value="Humacao">Humacao</option>
+                <option value="Isabela">Isabela</option>
+                <option value="Jayuya">Jayuya</option>
+                <option value="Juana Díaz">Juana Díaz</option>
+                <option value="Juncos">Juncos</option>
+                <option value="Lajas">Lajas</option>
+                <option value="Lares">Lares</option>
+                <option value="Las Marías">Las Marías</option>
+                <option value="Las Piedras">Las Piedras</option>
+                <option value="Loíza">Loíza</option>
+                <option value="Luquillo">Luquillo</option>
+                <option value="Manatí">Manatí</option>
+                <option value="Maricao">Maricao</option>
+                <option value="Maunabo">Maunabo</option>
+                <option value="Mayagüez">Mayagüez</option>
+                <option value="Moca">Moca</option>
+                <option value="Morovis">Morovis</option>
+                <option value="Naguabo">Naguabo</option>
+                <option value="Naranjito">Naranjito</option>
+                <option value="Orocovis">Orocovis</option>
+                <option value="Patillas">Patillas</option>
+                <option value="Peñuelas">Peñuelas</option>
+                <option value="Ponce">Ponce</option>
+                <option value="Quebradillas">Quebradillas</option>
+                <option value="Rincón">Rincón</option>
+                <option value="Río Grande">Río Grande</option>
+                <option value="Sabana Grande">Sabana Grande</option>
+                <option value="Salinas">Salinas</option>
+                <option value="San Germán">San Germán</option>
+                <option value="San Juan">San Juan</option>
+                <option value="San Lorenzo">San Lorenzo</option>
+                <option value="San Sebastián">San Sebastián</option>
+                <option value="Santa Isabel">Santa Isabel</option>
+                <option value="Toa Alta">Toa Alta</option>
+                <option value="Toa Baja">Toa Baja</option>
+                <option value="Trujillo Alto">Trujillo Alto</option>
+                <option value="Utuado">Utuado</option>
+                <option value="Vega Alta">Vega Alta</option>
+                <option value="Vega Baja">Vega Baja</option>
+                <option value="Vieques">Vieques</option>
+                <option value="Villalba">Villalba</option>
+                <option value="Yabucoa">Yabucoa</option>
+                <option value="Yauco">Yauco</option>
+              </select><span class="err"></span></div>
+            <div class="field"><label for="s-anos" data-i18n-es="Años en operación" data-i18n-en="Years in business">Años en operación</label>
+              <select id="s-anos" name="anos" required>
+                <option value="" data-i18n-es="Seleccione" data-i18n-en="Select">Seleccione</option>
+                <option value="Menos de 2" data-i18n-es="Menos de 2" data-i18n-en="Less than 2">Menos de 2</option>
+                <option value="2 a 5" data-i18n-es="2 a 5" data-i18n-en="2 to 5">2 a 5</option>
+                <option value="6 a 10" data-i18n-es="6 a 10" data-i18n-en="6 to 10">6 a 10</option>
+                <option value="Más de 10" data-i18n-es="Más de 10" data-i18n-en="More than 10">Más de 10</option>
+              </select><span class="err"></span></div>
+          </div>
+          <div class="qrow">
+            <div class="field"><label for="s-empleados" data-i18n-es="Cantidad de empleados" data-i18n-en="Number of employees">Cantidad de empleados</label>
+              <select id="s-empleados" name="empleados" required>
+                <option value="" data-i18n-es="Seleccione" data-i18n-en="Select">Seleccione</option>
+                <option value="1 a 5">1 a 5</option>
+                <option value="6 a 15">6 a 15</option>
+                <option value="16 a 50">16 a 50</option>
+                <option value="Más de 50" data-i18n-es="Más de 50" data-i18n-en="More than 50">Más de 50</option>
+              </select><span class="err"></span></div>
+            <div class="field"><label for="s-web"><span data-i18n-es="Sitio web o red social" data-i18n-en="Website or social media">Sitio web o red social</span> <span class="opt" data-i18n-es="(opcional)" data-i18n-en="(optional)">(opcional)</span></label>
+              <input id="s-web" name="web" inputmode="url"><span class="err"></span></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="qgroup">
+          <legend data-n="2" data-i18n-es="Registros y seguros" data-i18n-en="Registrations and insurance">Registros y seguros</legend>
+          <div class="qrow">
+            <div class="field"><label for="s-daco" data-i18n-es="Número de registro DACO" data-i18n-en="DACO registration number">Número de registro DACO</label>
+              <input id="s-daco" name="daco" required><span class="err"></span></div>
+            <div class="field"><label for="s-rc" data-i18n-es="Número de Registro de Comerciante" data-i18n-en="Merchant Registration number">Número de Registro de Comerciante</label>
+              <input id="s-rc" name="comerciante" required><span class="err"></span></div>
+          </div>
+          <div class="field"><label for="s-lic"><span data-i18n-es="Licencia profesional (perito, ingeniero, plomero, etc.)" data-i18n-en="Professional license (electrician, engineer, plumber, etc.)">Licencia profesional (perito, ingeniero, plomero, etc.)</span> <span class="opt" data-i18n-es="(opcional)" data-i18n-en="(optional)">(opcional)</span></label>
+            <input id="s-lic" name="licencia" data-ph-es="Tipo y número de licencia" data-ph-en="License type and number" placeholder="Tipo y número de licencia"><span class="err"></span></div>
+          <div class="field"><span class="lbl" id="s-seg-l" data-i18n-es="¿Tiene póliza de responsabilidad pública y CFSE vigentes?" data-i18n-en="Do you have current general liability insurance and CFSE?">¿Tiene póliza de responsabilidad pública y CFSE vigentes?</span>
+            <div class="seg" role="radiogroup" aria-labelledby="s-seg-l">
+              <label><input type="radio" name="seguros" value="Sí, ambas" id="s-seg-1"><span data-i18n-es="Sí, ambas" data-i18n-en="Yes, both">Sí, ambas</span></label>
+              <label><input type="radio" name="seguros" value="Solo una" id="s-seg-2"><span data-i18n-es="Solo una" data-i18n-en="Only one">Solo una</span></label>
+              <label><input type="radio" name="seguros" value="No" id="s-seg-3"><span>No</span></label>
+            </div><span class="err"></span></div>
+        </fieldset>
+
+        <fieldset class="qgroup">
+          <legend data-n="3" data-i18n-es="Obra que realiza" data-i18n-en="Work you perform">Obra que realiza</legend>
+          <div class="field"><span class="lbl" data-i18n-es="Seleccione todas las que apliquen" data-i18n-en="Select all that apply">Seleccione todas las que apliquen</span>
+            <div class="chips-opt" id="s-trades">
+            <label class="chip-opt"><input type="checkbox" name="trades" value="electrico" data-es="Trabajos eléctricos"><span data-i18n-es="Trabajos eléctricos" data-i18n-en="Electrical work">Trabajos eléctricos</span></label>
+            <label class="chip-opt"><input type="checkbox" name="trades" value="puertas-ventanas" data-es="Puertas y ventanas"><span data-i18n-es="Puertas y ventanas" data-i18n-en="Doors and windows">Puertas y ventanas</span></label>
+            <label class="chip-opt"><input type="checkbox" name="trades" value="soldadura" data-es="Soldadura y estructuras de metal"><span data-i18n-es="Soldadura y estructuras de metal" data-i18n-en="Welding and metal structures">Soldadura y estructuras de metal</span></label>
+            <label class="chip-opt"><input type="checkbox" name="trades" value="landscaping" data-es="Landscaping"><span data-i18n-es="Landscaping" data-i18n-en="Landscaping">Landscaping</span></label>
+            <label class="chip-opt"><input type="checkbox" name="trades" value="construccion" data-es="Construcción"><span data-i18n-es="Construcción" data-i18n-en="Construction">Construcción</span></label>
+            <label class="chip-opt"><input type="checkbox" name="trades" value="fascias" data-es="Fascias"><span data-i18n-es="Fascias" data-i18n-en="Fascias">Fascias</span></label>
+            <label class="chip-opt"><input type="checkbox" name="trades" value="carreteras" data-es="Carreteras y asfalto"><span data-i18n-es="Carreteras y asfalto" data-i18n-en="Roads and asphalt">Carreteras y asfalto</span></label>
+            <label class="chip-opt"><input type="checkbox" name="trades" value="techos" data-es="Sellado de techo"><span data-i18n-es="Sellado de techo" data-i18n-en="Roof sealing">Sellado de techo</span></label>
+            <label class="chip-opt"><input type="checkbox" name="trades" value="ingenieria" data-es="Servicios de ingeniería"><span data-i18n-es="Servicios de ingeniería" data-i18n-en="Engineering services">Servicios de ingeniería</span></label>
+            <label class="chip-opt"><input type="checkbox" name="trades" value="plomeria" data-es="Plomería"><span data-i18n-es="Plomería" data-i18n-en="Plumbing">Plomería</span></label>
+            <label class="chip-opt"><input type="checkbox" name="trades" value="hvac" data-es="HVAC"><span data-i18n-es="HVAC" data-i18n-en="HVAC">HVAC</span></label>
+            <label class="chip-opt"><input type="checkbox" name="trades" value="pintura" data-es="Pintura"><span data-i18n-es="Pintura" data-i18n-en="Painting">Pintura</span></label>
+            </div><span class="err"></span></div>
+          <div class="field"><span class="lbl" data-i18n-es="Regiones donde trabaja" data-i18n-en="Regions you serve">Regiones donde trabaja</span>
+            <div class="chips-opt" id="s-regiones">
+            <label class="chip-opt"><input type="checkbox" name="regiones" value="metro" data-es="Área metro"><span data-i18n-es="Área metro" data-i18n-en="Metro area">Área metro</span></label>
+            <label class="chip-opt"><input type="checkbox" name="regiones" value="norte" data-es="Norte"><span data-i18n-es="Norte" data-i18n-en="North">Norte</span></label>
+            <label class="chip-opt"><input type="checkbox" name="regiones" value="sur" data-es="Sur"><span data-i18n-es="Sur" data-i18n-en="South">Sur</span></label>
+            <label class="chip-opt"><input type="checkbox" name="regiones" value="este" data-es="Este"><span data-i18n-es="Este" data-i18n-en="East">Este</span></label>
+            <label class="chip-opt"><input type="checkbox" name="regiones" value="oeste" data-es="Oeste"><span data-i18n-es="Oeste" data-i18n-en="West">Oeste</span></label>
+            <label class="chip-opt"><input type="checkbox" name="regiones" value="centro" data-es="Centro"><span data-i18n-es="Centro" data-i18n-en="Central">Centro</span></label>
+            <label class="chip-opt"><input type="checkbox" name="regiones" value="isla" data-es="Toda la isla"><span data-i18n-es="Toda la isla" data-i18n-en="Island-wide">Toda la isla</span></label>
+            </div><span class="err"></span></div>
+          <div class="field"><label for="s-exp"><span data-i18n-es="Proyectos o clientes recientes" data-i18n-en="Recent projects or clients">Proyectos o clientes recientes</span> <span class="opt" data-i18n-es="(opcional)" data-i18n-en="(optional)">(opcional)</span></label>
+            <textarea id="s-exp" name="experiencia" data-ph-es="Ej.: instalación de 40 ventanas de impacto en un hotel en Dorado, 2025." data-ph-en="E.g.: installed 40 impact windows at a hotel in Dorado, 2025." placeholder="Ej.: instalación de 40 ventanas de impacto en un hotel en Dorado, 2025."></textarea><span class="err"></span></div>
+          <div class="field"><label class="check"><input type="checkbox" id="s-cert" name="certifico" required> <span data-i18n-es="Certifico que la información es correcta y que los registros indicados están vigentes." data-i18n-en="I certify that this information is correct and that the registrations listed are current.">Certifico que la información es correcta y que los registros indicados están vigentes.</span></label><span class="err"></span></div>
+        </fieldset>
+
+        <div class="hp" aria-hidden="true"><label for="s-hp">Website</label><input id="s-hp" name="_honey" tabindex="-1" autocomplete="off"></div>
+        <div class="qstatus" id="sstatus" role="status" aria-live="polite"></div>
+        <div class="qfoot">
+          <small data-i18n-es="Usamos esta información solo para evaluar su compañía como subcontratista." data-i18n-en="We only use this information to evaluate your company as a subcontractor.">Usamos esta información solo para evaluar su compañía como subcontratista.</small>
+          <button class="btn btn-dark qsubmit" type="submit" id="ssubmit"><span data-i18n-es="Enviar registro" data-i18n-en="Submit registration">Enviar registro</span> <span class="arr">→</span><span class="spin" aria-hidden="true"></span></button>
+        </div>
+      </form>
+
+      <div class="qdone" id="sdone" hidden tabindex="-1">
+        <div class="tick"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M6 14.5l5.2 5.2L22 8.8"/></svg></div>
+        <h3 data-i18n-es="Recibimos su registro." data-i18n-en="We received your registration.">Recibimos su registro.</h3>
+        <p data-i18n-es="Lo revisaremos y le contactaremos para solicitar copia de sus documentos cuando tengamos un proyecto de su especialidad." data-i18n-en="We will review it and contact you for copies of your documents when we have a project in your trade.">Lo revisaremos y le contactaremos para solicitar copia de sus documentos cuando tengamos un proyecto de su especialidad.</p>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="end" id="contacto">
@@ -1482,6 +1723,7 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
         <div><h4>Compañía</h4><ul>
           <li><a href="#sectores">Sectores</a></li>
           <li><a href="#proceso">Cómo trabajamos</a></li>
+          <li><a href="#subcontratistas">Subcontratistas</a></li>
           <li><a href="https://www.instagram.com/metakoreservices/" target="_blank" rel="noopener">Instagram</a></li>
         </ul></div>
         <div><h4>Visítenos</h4>
@@ -1611,7 +1853,7 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
 (function(){
   // Where submissions go. With a Web3Forms access key set here, the form uses Web3Forms (faster);
   // otherwise it uses FormSubmit, which emails metakoreservices@gmail.com.
-  var WEB3FORMS_KEY = '4602fa18-fb9f-4692-980f-79be6d19efcf';
+  var WEB3FORMS_KEY = window.MK_WEB3FORMS_KEY = '4602fa18-fb9f-4692-980f-79be6d19efcf';
   var ENDPOINT = WEB3FORMS_KEY ? 'https://api.web3forms.com/submit' : 'https://formsubmit.co/ajax/metakoreservices@gmail.com';
   var TIMEOUT_MS = 30000, SLOW_MS = 4000;
   var form = document.getElementById('qform'); if(!form) return;
@@ -1719,6 +1961,99 @@ address{font-style:normal;color:var(--on-dark-2);font-size:17px;line-height:1.55
   document.getElementById('qagain').addEventListener('click', function(){
     form.reset(); form.querySelectorAll('.field.bad').forEach(function(f){ setErr(f,''); });
     done.hidden = true; form.hidden = false; form.nombre.focus();
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var KEY = (window.MK_WEB3FORMS_KEY || '');
+  var form = document.getElementById('sform'); if(!form) return;
+  var section = document.getElementById('subcontratistas');
+  var langBox = document.getElementById('slang');
+  var statusEl = document.getElementById('sstatus'), btn = document.getElementById('ssubmit'), done = document.getElementById('sdone');
+  var lang = 'es';
+  var M = {
+    es:{req:'Este campo es requerido.', email:'Escriba un email válido.', tel:'Escriba un teléfono válido (10 dígitos).', trades:'Seleccione al menos una obra.', regions:'Seleccione al menos una región.', seg:'Seleccione una opción.', cert:'Debe certificar la información para continuar.',
+        sending:'Enviando…', slow:'Enviando… la conexión está lenta, puede tardar unos segundos más.', fail:'No pudimos enviar el registro. Intente de nuevo, o llame al 787-975-6728.', timeout:'El envío está tardando demasiado. Puede que haya llegado; si no, llame al 787-975-6728.'},
+    en:{req:'This field is required.', email:'Enter a valid email.', tel:'Enter a valid phone number (10 digits).', trades:'Select at least one type of work.', regions:'Select at least one region.', seg:'Select an option.', cert:'You must certify the information to continue.',
+        sending:'Sending…', slow:'Sending… the connection is slow, this may take a few more seconds.', fail:'We could not send your registration. Try again, or call 787-975-6728.', timeout:'Sending is taking too long. It may have gone through; if not, call 787-975-6728.'}
+  };
+  function setLang(l){
+    lang = l; langBox.setAttribute('data-lang', l); section.setAttribute('lang', l);
+    langBox.querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.l === l ? 'true' : 'false'); });
+    section.querySelectorAll('[data-i18n-' + l + ']').forEach(function(el){ var v = el.getAttribute('data-i18n-' + l); if(v) el.textContent = v; });
+    section.querySelectorAll('[data-ph-' + l + ']').forEach(function(el){ el.placeholder = el.getAttribute('data-ph-' + l); });
+    form.querySelectorAll('.field.bad').forEach(validate);
+  }
+  langBox.addEventListener('click', function(e){ var b = e.target.closest('button[data-l]'); if(b) setLang(b.dataset.l); });
+
+  function setErr(f, msg){ f.classList.toggle('bad', !!msg); var e = f.querySelector(':scope > .err'); if(e) e.textContent = msg || ''; }
+  function validate(f){
+    var m = M[lang];
+    if(f.querySelector('#s-trades')){ var a = form.querySelectorAll('input[name=trades]:checked').length; setErr(f, a ? '' : m.trades); return !!a; }
+    if(f.querySelector('#s-regiones')){ var r = form.querySelectorAll('input[name=regiones]:checked').length; setErr(f, r ? '' : m.regions); return !!r; }
+    if(f.querySelector('input[name=seguros]')){ var s = form.querySelector('input[name=seguros]:checked'); setErr(f, s ? '' : m.seg); return !!s; }
+    if(f.querySelector('#s-cert')){ var c = form.querySelector('#s-cert').checked; setErr(f, c ? '' : m.cert); return c; }
+    var el = f.querySelector('input,select,textarea');
+    if(!el || !el.required){ setErr(f, ''); return true; }
+    var v = (el.value || '').trim();
+    if(!v){ setErr(f, m.req); return false; }
+    if(el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){ setErr(f, m.email); return false; }
+    if(el.type === 'tel' && v.replace(/\D/g,'').length < 10){ setErr(f, m.tel); return false; }
+    setErr(f, ''); return true;
+  }
+  form.addEventListener('input', function(e){ var f = e.target.closest('.field'); if(f && f.classList.contains('bad')) validate(f); });
+  form.addEventListener('change', function(e){ var f = e.target.closest('.field'); if(f && f.classList.contains('bad')) validate(f); });
+
+  function checked(name){ return Array.prototype.map.call(form.querySelectorAll('input[name=' + name + ']:checked'), function(i){ return i.getAttribute('data-es') || i.value; }).join(', '); }
+  function optText(sel){ var o = sel.options[sel.selectedIndex]; return o && o.value ? o.value : ''; }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    statusEl.textContent = ''; statusEl.className = 'qstatus';
+    var ok = true, first = null;
+    form.querySelectorAll('.field').forEach(function(f){ if(!validate(f)){ ok = false; if(!first) first = f; } });
+    if(!ok){ var t = first.querySelector('input,select,textarea'); if(t) t.focus({preventScroll:true}); first.scrollIntoView({behavior:'smooth', block:'center'}); return; }
+    if(form._honey && form._honey.value) return;
+    var trades = checked('trades');
+    var data = {
+      access_key: KEY,
+      subject: 'Registro de subcontratista · ' + form.razon.value.trim() + ' · ' + trades,
+      from_name: 'Sitio web Metakore',
+      replyto: form.email.value.trim(),
+      botcheck: false,
+      'Compañía (nombre legal)': form.razon.value.trim(),
+      'Nombre comercial (DBA)': form.dba.value.trim() || '—',
+      'Persona de contacto': form.contacto.value.trim(),
+      'Puesto': form.puesto.value.trim() || '—',
+      'Teléfono': form.telefono.value.trim(),
+      'Email': form.email.value.trim(),
+      'Dirección física': form.direccion.value.trim(),
+      'Municipio': form.municipio.value,
+      'Años en operación': optText(form.anos),
+      'Empleados': optText(form.empleados),
+      'Sitio web / redes': form.web.value.trim() || '—',
+      'Registro DACO': form.daco.value.trim(),
+      'Registro de Comerciante': form.comerciante.value.trim(),
+      'Licencia profesional': form.licencia.value.trim() || '—',
+      'Responsabilidad pública y CFSE': (form.querySelector('input[name=seguros]:checked') || {}).value || '—',
+      'Obras que realiza': trades,
+      'Regiones': checked('regiones'),
+      'Proyectos o clientes recientes': form.experiencia.value.trim() || '—',
+      'Certificó la información': 'Sí',
+      'Idioma': lang === 'en' ? 'Inglés' : 'Español'
+    };
+    var label = btn.querySelector('[data-i18n-es]');
+    btn.disabled = true; btn.classList.add('busy'); if(label) label.textContent = M[lang].sending;
+    var ctrl = ('AbortController' in window) ? new AbortController() : null;
+    var slowT = setTimeout(function(){ statusEl.className = 'qstatus'; statusEl.textContent = M[lang].slow; }, 4000);
+    var killT = setTimeout(function(){ if(ctrl) ctrl.abort(); }, 30000);
+    fetch('https://api.web3forms.com/submit', {method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(data), signal: ctrl ? ctrl.signal : undefined})
+      .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ if(!r.ok || String(j.success) === 'false') throw new Error(j.message || r.status); }); })
+      .then(function(){ statusEl.textContent = ''; form.hidden = true; done.hidden = false; done.focus({preventScroll:true}); section.scrollIntoView({behavior:'smooth', block:'start'}); })
+      .catch(function(err){ statusEl.className = 'qstatus warn'; statusEl.textContent = (err && err.name === 'AbortError') ? M[lang].timeout : M[lang].fail; })
+      .then(function(){ clearTimeout(slowT); clearTimeout(killT); btn.disabled = false; btn.classList.remove('busy'); if(label) label.textContent = label.getAttribute('data-i18n-' + lang); });
   });
 })();
 </script>
